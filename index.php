@@ -128,15 +128,25 @@ echo "<br>";
 
 //3.
 //Buat fungsi rekursif untuk menghitung faktorial dari angka yang diberikan.
+    function rekursif(){
 
-
+    } 
+    
 //4.
 //Buat sebuah fungsi yang menerima dua parameter dan mengembalikan nilai tertinggi di antara kedua angka tersebut.
 
 
 //5.
 //Buat fungsi yang menerima dua angka dan mengembalikan hasil pembagian keduanya. Pastikan untuk menangani pembagian dengan nol (dividing by zero)
+    function pembagian ($Angka,$angka2){
+        $hasil = $Angka / $angka2;
+        echo $Angka. ' : ' . $angka2 . ' = ' . $hasil; 
 
+        if($angka2 < 0 ){
+            echo "kok kosong sih....";
+        }
+    }
+   // echo pembagian(10 , 0);
 
 //Class & Object 🏷️
 
@@ -259,8 +269,8 @@ echo "<br>";
     echo $data->massage();
 
     echo "<br>";
-    //4.
-    //Buat class yang memiliki constructor untuk menerima nilai parameter, dan destructor yang mencetak pesan ketika objek dihancurkan.
+//4.
+//Buat class yang memiliki constructor untuk menerima nilai parameter, dan destructor yang mencetak pesan ketika objek dihancurkan.
     class memiliki{
         public $menerima;
         public $memberi;
@@ -284,13 +294,14 @@ echo "<br>";
     class Student{ 
         
         public $name;
+        protected function setName($nama){
+            $this->name = $nama;
+        }
+
         public  function getName(){
             return $this->name;
         }
 
-        protected function setName($nama){
-            $this->name = $nama;
-        }
     }
 
     class AdvancedStudent extends Student {
