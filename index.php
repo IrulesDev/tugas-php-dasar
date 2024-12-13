@@ -5,12 +5,16 @@
 //1.
 // Buat sebuah variabel yang menyimpan nilai string dan tampilkan hasilnya.
     $nama = 'irul';
-    echo $nama . '<br>';
+    echo $nama;
+
+    echo "<br>";
 
 //2.
 //Buat sebuah variabel yang menyimpan nilai integer, kemudian ubah nilai variabel tersebut dengan menambahkan 5
     $nomer = 2005;
     echo $nomer+5 . "<br>";
+
+    echo "<br>";
 
 
 //3.
@@ -25,16 +29,22 @@
         echo "salah";
     }
 
+    echo "<br>";
+
 //4.
 //Buat sebuah array yang berisi angka dari 1 sampai 5, kemudian tampilkan elemen pertama dan terakhir dari array tersebut.
     $jawaban = array (1,2,3,4,5);
     echo $jawaban[0] . ' dan ' . $jawaban[4];
+
+    echo "<br>";
 
 //5.
 //Tentukan tipe data untuk variabel berikut dan tampilkan tipe datanya:<?php
     $var = 100;
     var_dump($var). "<br>";
 //integer!!!! <-jawaban
+
+echo "<br>";
 
 //6.
 //Buat sebuah variabel yang menyimpan float dan ubah nilai variabel tersebut menjadi hasil perkalian dengan 2.
@@ -46,11 +56,15 @@
 
     echo $a * $b;
 
+    echo "<br>";
+
 //7.
 //Tentukan tipe data untuk variabel berikut dan tampilkan tipe datanya:
     $var = "123";
     var_dump($var . '' ."<br>");
 //string!!!! <-jawaban
+
+echo "<br>";
 
 //Casting 🔄
 
@@ -66,6 +80,8 @@
 
     var_dump(perubaha($angka));
 
+    echo "<br>";
+
 //2.
 //Ubah variabel integer menjadi float. Kemudian, tampilkan hasilnya.
     $cas = 20;
@@ -73,6 +89,8 @@
     $cas = (float) $cas;
 
     var_dump($cas);
+
+    echo "<br>";
 
 // 3.
 //Buat variabel bertipe array dan ubah menjadi tipe object, kemudian tampilkan hasilnya.
@@ -83,6 +101,8 @@
     $hasil = (object) $aray;
     echo $hasil->email;
     echo $hasil->nohap;
+
+    echo "<br>";
 
 //Function 🔧
 
@@ -96,11 +116,15 @@
 
     echo penjumlahan(5,7);
 
+    echo "<br>";
+
 //2.
 //Buat fungsi yang menerima satu parameter string dan menampilkan hasilnya dengan awalan "Hello, ".
     function hello($isi){
         echo "hello $isi";
     } 
+
+    echo "<br>";
 
 //3.
 //Buat fungsi rekursif untuk menghitung faktorial dari angka yang diberikan.
@@ -134,6 +158,8 @@
     $keluar->nama('irul');
     echo $keluar->hasil();
 
+    echo "<br>";
+
 //2.
 //Buat class Car dengan method startEngine(), yang menampilkan "Engine Started" ketika dipanggil.
     class Car{
@@ -149,6 +175,8 @@
     $Engine = new Car;
     $Engine->hasilEngine();
     echo $Engine->hasilEngine();
+
+    echo "<br>";
 
 //3.
 //Buat class Rectangle dengan property width dan height, serta method calculateArea() yang mengembalikan hasil luas (area) dari persegi panjang.
@@ -171,6 +199,8 @@
     $persegi = new Rectangle;
     $persegi->calculateArea(10,30);
     echo $persegi->LuasPersegiPanjang();
+
+    echo "<br>";
 
 //5.
 //Buat class Employee dengan method getSalary(). Tulis kode untuk menampilkan gaji dari objek Employee.
@@ -195,6 +225,8 @@
 
     $cons = new construk('irul',19);
     echo $cons->regdsa();
+
+    echo "<br>";
 //2.
 //Buat class Book dengan constructor yang menerima parameter title dan author. Tampilkan informasi buku saat objek dibuat.
 
@@ -205,25 +237,69 @@
             $this->title = $title;
             $this->author = $author;
         }
-        function tampil(){
-            
+        function __destruct(){
+            echo "buku $this->title di buat oleh $this->author";
         }
 
         
     }
-
+    $info = new book("hujan","tereliye");
+    echo $info->__destruct();
+    
+    echo "<br>";    
 //3.
 //Buat class DatabaseConnection dengan destructor yang mencetak pesan "Koneksi ke database ditutup" ketika objek dihancurkan.
+    class DatabaseConnection{
+        function massage(){
+            echo "koneksi ke database di tutup";
+        }
+    }
 
+    $data = new DatabaseConnection;
+    echo $data->massage();
 
-//4.
-//Buat class yang memiliki constructor untuk menerima nilai parameter, dan destructor yang mencetak pesan ketika objek dihancurkan.
-
-
+    echo "<br>";
+    //4.
+    //Buat class yang memiliki constructor untuk menerima nilai parameter, dan destructor yang mencetak pesan ketika objek dihancurkan.
+    class memiliki{
+        public $menerima;
+        public $memberi;
+        function __construct($menerima,$memberi){
+            $this->memberi = $menerima;
+            $this->menerima = $memberi;
+        }
+        function __destruct(){
+            echo "penjual menerima $this->menerima dan memberi $this->memberi";
+        }
+    }
+    $jualbeli = new memiliki("uang","barang");
+    $jualbeli->__destruct();
+    
+    echo "<br>";
 
 //Visibility: Public, Protected, Private 🔒
 
 //1.
 //Buat class Student dengan property name yang memiliki akses private, method getName() yang memiliki akses public, dan method setName() yang memiliki akses protected. Demonstrasikan akses terhadap properti dan metode di luar class.
+    class Student{
+        private $irul;
+        public $fauzan;
+        protected $thoni;
+
+        public function getName($nama){
+            $this->fauzan = $nama;
+            $this->irul = $nama;
+            $this->thoni = $nama;
+        }
+        protected function setName(){
+            return $this->irul . $this->fauzan . $this->thoni;
+        }
+    }
+
+    $kelas = new Student;
+    $kelas->getName('irul');
+    echo $kelas->$irul;
 
 
+
+?>
