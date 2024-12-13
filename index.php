@@ -281,25 +281,27 @@ echo "<br>";
 
 //1.
 //Buat class Student dengan property name yang memiliki akses private, method getName() yang memiliki akses public, dan method setName() yang memiliki akses protected. Demonstrasikan akses terhadap properti dan metode di luar class.
-    class Student{
-        private $irul;
-        public $fauzan;
-        protected $thoni;
-
-        public function getName($nama){
-            $this->fauzan = $nama;
-            $this->irul = $nama;
-            $this->thoni = $nama;
+    class Student{ 
+        
+        public $name;
+        public  function getName(){
+            return $this->name;
         }
-        protected function setName(){
-            return $this->irul . $this->fauzan . $this->thoni;
+
+        protected function setName($nama){
+            $this->name = $nama;
         }
     }
 
-    $kelas = new Student;
-    $kelas->getName('irul');
-    echo $kelas->$irul;
+    class AdvancedStudent extends Student {
+        
+        function updateName($name){
+            $this->setName($name);
+        }
+    }
 
+    $kelas = new AdvancedStudent;
+    $kelas->updateName('irul nich');
+    echo $kelas->getName();
 
-
-?>
+    echo '<br>';
